@@ -22,7 +22,7 @@ public class JedisTest {
         Jedis jedis = new Jedis("127.0.0.1", 6379);
 
         //认证密码
-        //jedis.auth("root");
+//        jedis.auth("123456");
 
         //存值
         String cm = jedis.set("cm", "18");
@@ -44,7 +44,7 @@ public class JedisTest {
         jedisPoolConfig.setMaxIdle(30);//最小闲置数
         jedisPoolConfig.setMinIdle(10);//最小闲置数
 
-        JedisPool jedisPool = new JedisPool(jedisPoolConfig, "127.0.0.1", 6379);
+        JedisPool jedisPool = new JedisPool(jedisPoolConfig, "127.0.0.1", 6379,2000,"123456");
 
         Jedis resource = jedisPool.getResource();
         User user = new User(17, "stephen", "0.17");
